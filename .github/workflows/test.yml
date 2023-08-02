@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: log
+        run: |
+          echo "testing"        
       - name: Commit changes
         run: |
           echo "foo" > foo.txt
