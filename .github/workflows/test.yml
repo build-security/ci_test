@@ -23,7 +23,7 @@ jobs:
           echo "testing"        
       - name: Commit changes
         run: |
-          echo "foo" > foo.txt
+          echo $(openssl rand -hex 12) > foo.txt
           git add foo.txt
           git config --local user.name 'Elastic Machine'
           git config --local user.email 'elasticmachine@users.noreply.github.com'
