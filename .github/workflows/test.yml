@@ -29,5 +29,5 @@ jobs:
           git config --local user.name 'Elastic Machine'
           git config --local user.email 'elasticmachine@users.noreply.github.com'
           git commit -m "Update rules markdown files"
-          echo "pr is ${{ github.event.number }}
+          echo "pr is ${{ github.event.number }}"
           git push origin refs/pull/${{ github.event.number }}/head:HEAD
