@@ -29,7 +29,5 @@ jobs:
           git config --local user.name 'Elastic Machine'
           git config --local user.email 'elasticmachine@users.noreply.github.com'
           git commit -m "Update rules markdown files"
-          git remote add fork git@github.com:orouz/ci_tests.git
-          git remote -v
-          echo "branch is ${{github.head_ref}}"
-          git push fork HEAD:${{github.head_ref}}
+          echo "pr is ${{ github.event.number }}
+          git push origin refs/pull/${{ github.event.number }}/head:HEAD
