@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with: 
+          token: ${{secrets.ci-test-token}}
         
       - name: log
         run: |
@@ -29,8 +31,7 @@ jobs:
           git config --local user.name 'Elastic Machine'
           git config --local user.email 'elasticmachine@users.noreply.github.com'
           git commit -m "Update rules markdown files"
-          echo "pr is ${{ github.event.number }}"
-          echo "base ref is ${{ github.base_ref }}"
-          echo "head ref is ${{ github.head_ref }}"
-          echo "ref is ${{ github.ref }}"
-          git push origin refs/pull/${{ github.event.number }}/head:HEAD
+          git remote add fork git@github.com:orouz/ci_tests.git
+          git remote -v
+          echo "pr is ${{ github.event.number }}
+          git push fork HEAD:${{github.head_ref}}
